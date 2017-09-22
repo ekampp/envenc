@@ -20,9 +20,11 @@ npm install envenc
 5. Commit: `.env.enc` to source control
 6. Include: `require('envenc')(process.env.SOME_SECRET)` at the top of your application
 
-**Important:** This is not for your production enviroment. You should store those keys on your server. This is specifically for sharing development keys with other developers.
-
 **Optional:** There is also support for a `.env.local` file. This is meant for local modifications and will overwrite anything in the `.env`. You should also put this in your `.gitignore` file
+
+### Decrypting the .env.enc
+
+To decrypt the .env.enc and be left with an unencrypted .env file that you can edit, run `./node_modules/.bin/envdec $SOME_SECRET`.
 
 ## Motivation
 
