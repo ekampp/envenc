@@ -6,6 +6,7 @@ var localenv = require('localenv/noload')
 var write = require('fs').writeFileSync
 var exists = require('fs').existsSync
 var read = require('fs').readFileSync
+var unlink = require('fs').unlinkSync
 var crypto = require('crypto')
 var concat = Buffer.concat
 var fs = require('fs')
@@ -35,13 +36,11 @@ exports = module.exports = encenv
  */
 
 function encenv (pwd) {
-  if (!production) {
-    if (!pwd) throw new Error('encenv requires a password')
-    exports.decrypt(pwd)
-    localenv.inject_env(decrypted_file)
-  }
-
+  if (!pwd) throw new Error('encenv requires a password')
+  exports.decrypt(pwd)
+  localenv.inject_env(decrypted_file)
   localenv.inject_env(local_decrypted_file)
+  unlink(decrypted_file)
 }
 
 /**
