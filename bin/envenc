@@ -2,7 +2,11 @@
 
 var args = process.argv.slice(2)
 var envenc = require('..')
-var pwd = args.shift()
+var readlineSync = require('readline-sync');
+
+var pwd = readlineSync.question('Config password: ', {
+  hideEchoBack: true,
+})
 
 /**
  * Ensure we have a password

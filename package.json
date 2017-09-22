@@ -17,7 +17,8 @@
     "url": "git://github.com/ekampp/envenc.git"
   },
   "dependencies": {
-    "localenv": "^0.2.2"
+    "localenv": "^0.2.2",
+    "readline-sync": "^1.4.7"
   },
   "main": "index",
   "bin": {
